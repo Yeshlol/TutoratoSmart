@@ -79,12 +79,13 @@ FOREIGN KEY (Tutor) REFERENCES TS_User(Email),
 FOREIGN KEY (RegisterId) REFERENCES Register(IdRegister));
 
 CREATE TABLE Work_Day
-(	WorkDayName			ENUM('Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì')	NOT NULL,
+(	IdWorkDay			INT				NOT NULL	AUTO_INCREMENT,
+	WorkDayName			ENUM('Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì')	NOT NULL,
 	StartTime			INT				NOT NULL,
     FinishTime			INT				NOT NULL,
     IsOpen				BOOLEAN			NOT NULL 	DEFAULT FALSE,
     CommissionMember	VARCHAR(30)		NOT NULL,
-PRIMARY KEY (WorkDayName),
+PRIMARY KEY (IdWorkDay),
 FOREIGN KEY (CommissionMember) REFERENCES Tutoring_Commission_Member(Email));
 
 CREATE TABLE Manages
