@@ -3,7 +3,7 @@ CREATE SCHEMA TutoratoSmart;
 
 USE TutoratoSmart;
 
-CREATE TABLE TS_User
+CREATE TABLE TS_USER
 (	Email				VARCHAR(30)		NOT NULL,
     Pwd					VARCHAR(40)		NOT NULL,
 	FirstName			VARCHAR(30)		NOT NULL,
@@ -14,18 +14,18 @@ CREATE TABLE TS_User
 PRIMARY KEY (Email),
 UNIQUE (RegistrationNumber));
 
-CREATE TABLE Student
+CREATE TABLE STUDENT
 (	Email				VARCHAR(30)		NOT NULL,
 	AcademicYear		INT				NOT NULL,
 PRIMARY KEY (Email),
-FOREIGN KEY (Email) REFERENCES TS_User(Email));
+FOREIGN KEY (Email) REFERENCES TS_USER(Email));
 
-CREATE TABLE Tutoring_Commission_Member
+CREATE TABLE TUTORING_COMMISSION_MEMBER
 (	Email				VARCHAR(30)		NOT NULL,
 PRIMARY KEY (Email),
-FOREIGN KEY (Email) REFERENCES TS_User(Email));
+FOREIGN KEY (Email) REFERENCES TS_USER(Email));
 
-CREATE TABLE Register
+CREATE TABLE REGISTER
 (	IdRegister			INT				NOT NULL	AUTO_INCREMENT,
 	State				ENUM('Non approvato', 'Approvato')		NOT NULL 	DEFAULT 'Non approvato',
     ValidatedHours		INT				NOT NULL	DEFAULT 0,
@@ -33,17 +33,17 @@ CREATE TABLE Register
     PercentageComplete	FLOAT			NOT NULL	DEFAULT 0,
 PRIMARY KEY (IdRegister));
 
-CREATE TABLE Tutor
+CREATE TABLE TUTOR
 (	Email				VARCHAR(30)		NOT NULL,
 	StartDate			DATE			NOT NULL,
     CommissionMember	VARCHAR(30)		NOT NULL,
     RegisterId			INT				NOT NULL,
 PRIMARY KEY (Email),
-FOREIGN KEY (Email) REFERENCES TS_User(Email),
-FOREIGN KEY (CommissionMember) REFERENCES Tutoring_Commission_Member(Email),
-FOREIGN KEY (RegisterId) REFERENCES Register(IdRegister));
+FOREIGN KEY (Email) REFERENCES TS_USER(Email),
+FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email),
+FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 
-CREATE TABLE Request
+CREATE TABLE REQUEST
 (	IdRequest			INT				NOT NULL	AUTO_INCREMENT,
 	State				ENUM('In valutazione', 'Accettata')  NOT NULL	DEFAULT 'In valutazione',
 	StudentComment		VARCHAR(240)	NOT NULL,
@@ -52,18 +52,18 @@ CREATE TABLE Request
     Duration			INT				NOT NULL,
     Student				VARCHAR(30)		NOT NULL,
 PRIMARY KEY (IdRequest),
-FOREIGN KEY (Student) REFERENCES Student(Email));
+FOREIGN KEY (Student) REFERENCES STUDENT(Email));
 
-CREATE TABLE Appointment
+CREATE TABLE APPOINTMENT
 (	IdAppointment		INT				NOT NULL	AUTO_INCREMENT,
 	Details				VARCHAR(240)	NOT NULL,
     RequestId			INT				NOT NULL,
     Tutor				VARCHAR(30)		NOT NULL,
 PRIMARY KEY (IdAppointment),
-FOREIGN KEY (RequestId) REFERENCES Request(IdRequest),
-FOREIGN KEY (Tutor) REFERENCES Tutor(Email));
+FOREIGN KEY (RequestId) REFERENCES REQUEST(IdRequest),
+FOREIGN KEY (Tutor) REFERENCES TUTOR(Email));
 
-CREATE TABLE Activity_Tutor
+CREATE TABLE ACTIVITY_TUTOR
 (	IdActivity			INT				NOT NULL	AUTO_INCREMENT,
 	Category			ENUM('Sportello informativo', 'Assistenza Esame', 'Organizzazione Seminario', 'Seminario', 'Organizzazione Evento', 'Evento')	NOT NULL,
 	ActivityDate		DATE			NOT NULL,
@@ -75,10 +75,10 @@ CREATE TABLE Activity_Tutor
     Tutor				VARCHAR(30)		NOT NULL,
     RegisterId			INT				NOT NULL,
 PRIMARY KEY (IdActivity),
-FOREIGN KEY (Tutor) REFERENCES TS_User(Email),
-FOREIGN KEY (RegisterId) REFERENCES Register(IdRegister));
+FOREIGN KEY (Tutor) REFERENCES TS_USER(Email),
+FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 
-CREATE TABLE Work_Day
+CREATE TABLE WORK_DAY
 (	IdWorkDay			INT				NOT NULL	AUTO_INCREMENT,
 	WorkDayName			ENUM('Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì')	NOT NULL,
 	StartTime			INT				NOT NULL,
@@ -86,25 +86,25 @@ CREATE TABLE Work_Day
     IsOpen				BOOLEAN			NOT NULL 	DEFAULT FALSE,
     CommissionMember	VARCHAR(30)		NOT NULL,
 PRIMARY KEY (IdWorkDay),
-FOREIGN KEY (CommissionMember) REFERENCES Tutoring_Commission_Member(Email));
+FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email));
 
-CREATE TABLE Manages
+CREATE TABLE MANAGES
 (	Tutor 				VARCHAR(30)		NOT NULL,
 	RequestId			INT				NOT NULL,
 PRIMARY KEY (Tutor, RequestId),
-FOREIGN KEY (Tutor) REFERENCES Tutor(Email),
-FOREIGN KEY (RequestId) REFERENCES Request(IdRequest));
+FOREIGN KEY (Tutor) REFERENCES TUTOR(Email),
+FOREIGN KEY (RequestId) REFERENCES REQUEST(IdRequest));
 
-CREATE TABLE Contained_In
+CREATE TABLE CONTAINED_IN
 (	AppointmentId		INT				NOT NULL,
 	ActivityId			INT				NOT NULL,
 PRIMARY KEY (AppointmentId, ActivityId),
-FOREIGN KEY (AppointmentId) REFERENCES Appointment(IdAppointment),
-FOREIGN KEY (ActivityId) REFERENCES Activity_Tutor(IdActivity));
+FOREIGN KEY (AppointmentId) REFERENCES APPOINTMENT(IdAppointment) 	ON DELETE CASCADE,
+FOREIGN KEY (ActivityId) REFERENCES ACTIVITY_TUTOR(IdActivity) 		ON DELETE CASCADE);
 
-CREATE TABLE Validates
+CREATE TABLE VALIDATES
 (	CommissionMember	VARCHAR(30)		NOT NULL,
 	ActivityId			INT				NOT NULL,
 PRIMARY KEY (CommissionMember, ActivityId),
-FOREIGN KEY (CommissionMember) REFERENCES Tutoring_Commission_Member(Email),
-FOREIGN KEY (ActivityId) REFERENCES Activity_Tutor(IdActivity));
+FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email),
+FOREIGN KEY (ActivityId) REFERENCES ACTIVITY_TUTOR(IdActivity));
