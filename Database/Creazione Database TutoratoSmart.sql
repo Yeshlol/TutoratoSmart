@@ -6,6 +6,7 @@ USE TutoratoSmart;
 CREATE TABLE TS_USER
 (	Email				VARCHAR(45)		NOT NULL,
     Pwd					VARCHAR(64)		NOT NULL,
+    UserRole			TINYINT(1) 		NOT NULL,
 	FirstName			VARCHAR(30)		NOT NULL,
     LastName			VARCHAR(30)		NOT NULL,
     TelephoneNumber		VARCHAR(10)		NOT NULL,
@@ -52,7 +53,7 @@ CREATE TABLE REQUEST
     RequestDate			DATE			NOT NULL,
     RequestTime			INT				NOT NULL,
     Duration			INT				NOT NULL,
-    Student				VARCHAR(30)		NOT NULL,
+    Student				VARCHAR(45)		NOT NULL,
 PRIMARY KEY (IdRequest),
 FOREIGN KEY (Student) REFERENCES STUDENT(Email));
 
@@ -81,14 +82,14 @@ FOREIGN KEY (Tutor) REFERENCES TS_USER(Email),
 FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 
 CREATE TABLE CALENDAR
-( 	IdCalendar			INT				NOT NULL	AUTO_INCREMENT,
+( 	IdCalendar			TINYINT(1)		NOT NULL	AUTO_INCREMENT,
 	CommissionMember	VARCHAR(45)		NOT NULL,
 PRIMARY KEY (IdCalendar),
 FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email));
 
 CREATE TABLE WORK_DAY
-(	CalendarId			INT				NOT NULL	AUTO_INCREMENT,
-	WorkDayName			ENUM('Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì')	NOT NULL,
+(	CalendarId			TINYINT(1)		NOT NULL	AUTO_INCREMENT,
+	WorkDayName			ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')	NOT NULL,
 	StartTime			INT				NOT NULL,
     FinishTime			INT				NOT NULL,
     IsOpen				BOOLEAN			NOT NULL 	DEFAULT FALSE,
