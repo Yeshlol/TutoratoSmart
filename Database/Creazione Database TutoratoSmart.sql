@@ -1,12 +1,12 @@
 DROP SCHEMA if exists TutoratoSmart;
 CREATE SCHEMA TutoratoSmart;
-
+	
 USE TutoratoSmart;
 
 CREATE TABLE TS_USER
 (	Email				VARCHAR(45)		NOT NULL,
     Pwd					VARCHAR(64)		NOT NULL,
-    UserRole			TINYINT(1) 		NOT NULL,
+    UserRole			TINYINT(1) 		NOT NULL,			-- 1 = CommissionMember, 2 = Tutor, 3 = Student
 	FirstName			VARCHAR(30)		NOT NULL,
     LastName			VARCHAR(30)		NOT NULL,
     TelephoneNumber		VARCHAR(10)		NOT NULL,
@@ -89,9 +89,11 @@ FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email));
 
 CREATE TABLE WORK_DAY
 (	CalendarId			TINYINT(1)		NOT NULL	AUTO_INCREMENT,
-	WorkDayName			ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')	NOT NULL,
+	WorkDayName			ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')	NOT NULL,
 	StartTime			INT				NOT NULL,
     FinishTime			INT				NOT NULL,
+    StartTime2			INT,
+    FinishTime2			INT,
     IsOpen				BOOLEAN			NOT NULL 	DEFAULT FALSE,
 PRIMARY KEY (CalendarId, WorkDayName),
 FOREIGN KEY (CalendarId) REFERENCES CALENDAR(IdCalendar));
