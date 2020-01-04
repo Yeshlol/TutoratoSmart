@@ -41,19 +41,17 @@ INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime
 
 
 -- Request
-INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (1, 'Accettata', 'Commento studente', '2019-12-24', 720, 30, 'g.luongo@studenti.unicampania.it');
-INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (2, 'Accettata', 'Commento studente2', '2019-10-23', 550, 40, 'e.merola@studenti.unicampania.it');
-INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (3, 'In valutazione', 'Commento studente3', '2019-09-22', 820, 50, 'a.tommasino@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (1, 'Accettata', 'Supporto Immatricolazione', '2020-01-01', 720, 80, 'g.luongo@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (2, 'Accettata', 'Aiuto preparazione esame', '2020-01-02', 550, 40, 'e.merola@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (3, 'Accettata', 'Non riesco a prenotarmi per la prova intercorso', '2020-01-02', 590, 30, 'a.tommasino@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (4, 'In valutazione', 'Supporto prenotazione esame', '2020-01-08', 600, 20, 'e.merola@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (5, 'In valutazione', 'Preparazione prova scritta', '2020-01-08', 730, 15, 'g.luongo@studenti.unicampania.it');
 
 
 -- Appointment
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Dettagli1', '1', 'm.pisciotta@studenti.unicampania.it');
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (2,'Dettagli2', '2', 'c.ferrari@studenti.unicampania.it');
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (3,'Dettagli3', '3', 'm.lombardo@studenti.unicampania.it');
-
-
--- Calendar:
-INSERT INTO CALENDAR(IdCalendar,CommissionMember) VALUES (1, 'd.molinaro@commissione.unicampania.it');
 
 
 -- Contained_in
@@ -72,12 +70,3 @@ INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.lombardo@studenti.unicampania.it
 INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 1);
 INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 2);
 INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 3);
-
-
--- WorkDays:
-INSERT INTO WORK_DAY(CalendarId,WorkDayName,StartTime,FinishTime,IsOpen) VALUES (1, 'Monday',710,920,true);
-INSERT INTO WORK_DAY(CalendarId,WorkDayName,StartTime,FinishTime,IsOpen) VALUES (1, 'Tuesday',540,780,true);
-INSERT INTO WORK_DAY(CalendarId,WorkDayName,StartTime,FinishTime,IsOpen) VALUES (1, 'Wednesday',810,990,true);
-INSERT INTO WORK_DAY(CalendarId,WorkDayName,StartTime,FinishTime,IsOpen) VALUES (1, 'Thursday',610,790,false);
-INSERT INTO WORK_DAY(CalendarId,WorkDayName,StartTime,FinishTime,IsOpen) VALUES (1, 'Friday',410,690,false);
-INSERT INTO WORK_DAY(CalendarId,WorkDayName,StartTime,FinishTime,IsOpen) VALUES (1, 'Saturday',410,690,false);

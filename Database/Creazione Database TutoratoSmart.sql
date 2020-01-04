@@ -81,23 +81,6 @@ PRIMARY KEY (IdActivity),
 FOREIGN KEY (Tutor) REFERENCES TS_USER(Email),
 FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 
-CREATE TABLE CALENDAR
-( 	IdCalendar			TINYINT(1)		NOT NULL	AUTO_INCREMENT,
-	CommissionMember	VARCHAR(45)		NOT NULL,
-PRIMARY KEY (IdCalendar),
-FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email));
-
-CREATE TABLE WORK_DAY
-(	CalendarId			TINYINT(1)		NOT NULL	AUTO_INCREMENT,
-	WorkDayName			ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')	NOT NULL,
-	StartTime			INT				NOT NULL,
-    FinishTime			INT				NOT NULL,
-    StartTime2			INT,
-    FinishTime2			INT,
-    IsOpen				BOOLEAN			NOT NULL 	DEFAULT FALSE,
-PRIMARY KEY (CalendarId, WorkDayName),
-FOREIGN KEY (CalendarId) REFERENCES CALENDAR(IdCalendar));
-
 CREATE TABLE MANAGES
 (	Tutor 				VARCHAR(45)		NOT NULL,
 	RequestId			INT				NOT NULL,
