@@ -49,7 +49,7 @@ FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 CREATE TABLE REQUEST
 (	IdRequest			INT				NOT NULL	AUTO_INCREMENT,
 	State				ENUM('In valutazione', 'Accettata')  NOT NULL	DEFAULT 'In valutazione',
-	StudentComment		VARCHAR(240)	NOT NULL,
+	StudentComment		VARCHAR(2400)	NOT NULL,
     RequestDate			DATE			NOT NULL,
     RequestTime			INT				NOT NULL,
     Duration			INT				NOT NULL,
@@ -59,7 +59,7 @@ FOREIGN KEY (Student) REFERENCES STUDENT(Email));
 
 CREATE TABLE APPOINTMENT
 (	IdAppointment		INT				NOT NULL	AUTO_INCREMENT,
-	Details				VARCHAR(240)	NOT NULL,
+	Details				VARCHAR(2400)	NOT NULL,
     RequestId			INT				NOT NULL,
     Tutor				VARCHAR(45)		NOT NULL,
 PRIMARY KEY (IdAppointment),

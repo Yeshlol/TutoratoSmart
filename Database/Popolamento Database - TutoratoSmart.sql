@@ -35,21 +35,21 @@ INSERT INTO TUTOR(Email,StartDate,FinishDate,CommissionMember,RegisterId) VALUES
 
 
 -- Activity
-INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (1,'Sportello informativo', '2019-12-24', 11, 13, 2, 'In valutazione', 'Dettagli1', 'm.pisciotta@studenti.unicampania.it', 1);
-INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (2,'Assistenza Esame', '2019-12-25', 12, 13, 1, 'Convalidata', 'Dettagli2', 'c.ferrari@studenti.unicampania.it', 2);
-INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (3, 'Organizzazione Seminario', '2019-12-26', 15, 18, 3, 'Convalidata', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (1,'Sportello informativo', '2019-12-24', 600, 650, 0.83, 'In valutazione', 'Dettagli1', 'm.pisciotta@studenti.unicampania.it', 1);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (2,'Assistenza Esame', '2019-12-25', 720, 780, 1, 'Convalidata', 'Dettagli2', 'c.ferrari@studenti.unicampania.it', 2);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (3, 'Organizzazione Seminario', '2019-12-26', 540, 780, 4, 'Convalidata', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
 
 
 -- Request
-INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (1, 'Accettata', 'Supporto Immatricolazione', '2020-01-01', 720, 80, 'g.luongo@studenti.unicampania.it');
-INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (2, 'Accettata', 'Aiuto preparazione esame', '2020-01-02', 550, 40, 'e.merola@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (1, 'Accettata', 'Supporto Immatricolazione', '2019-01-31', 720, 80, 'g.luongo@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (2, 'Accettata', 'Aiuto preparazione esame', '2019-10-02', 550, 40, 'e.merola@studenti.unicampania.it');
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (3, 'Accettata', 'Non riesco a prenotarmi per la prova intercorso', '2020-01-02', 590, 30, 'a.tommasino@studenti.unicampania.it');
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (4, 'In valutazione', 'Supporto prenotazione esame', '2020-01-08', 600, 20, 'e.merola@studenti.unicampania.it');
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (5, 'In valutazione', 'Preparazione prova scritta', '2020-01-08', 730, 15, 'g.luongo@studenti.unicampania.it');
 
 
 -- Appointment
-INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Dettagli1', '1', 'm.pisciotta@studenti.unicampania.it');
+INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.', '1', 'm.pisciotta@studenti.unicampania.it');
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (2,'Dettagli2', '2', 'c.ferrari@studenti.unicampania.it');
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (3,'Dettagli3', '3', 'm.lombardo@studenti.unicampania.it');
 
