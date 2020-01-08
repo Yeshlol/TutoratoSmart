@@ -21,11 +21,6 @@ CREATE TABLE STUDENT
 PRIMARY KEY (Email),
 FOREIGN KEY (Email) REFERENCES TS_USER(Email));
 
-CREATE TABLE TUTORING_COMMISSION_MEMBER
-(	Email				VARCHAR(45)		NOT NULL,
-PRIMARY KEY (Email),
-FOREIGN KEY (Email) REFERENCES TS_USER(Email));
-
 CREATE TABLE REGISTER
 (	IdRegister			INT				NOT NULL	AUTO_INCREMENT,
 	State				ENUM('Non approvato', 'Approvato')		NOT NULL 	DEFAULT 'Non approvato',
@@ -43,23 +38,23 @@ CREATE TABLE TUTOR
     RegisterId			INT				NOT NULL,
 PRIMARY KEY (Email),
 FOREIGN KEY (Email) REFERENCES TS_USER(Email),
-FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email),
+FOREIGN KEY (CommissionMember) REFERENCES TS_USER(Email),
 FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 
 CREATE TABLE REQUEST
 (	IdRequest			INT				NOT NULL	AUTO_INCREMENT,
 	State				ENUM('In valutazione', 'Accettata')  NOT NULL	DEFAULT 'In valutazione',
-	StudentComment		VARCHAR(2400)	NOT NULL,
+	StudentComment		VARCHAR(320)	NOT NULL,
     RequestDate			DATE			NOT NULL,
     RequestTime			INT				NOT NULL,
-    Duration			INT				NOT NULL,
+    Duration			INT				NOT NULL	DEFAULT '30',
     Student				VARCHAR(45)		NOT NULL,
 PRIMARY KEY (IdRequest),
 FOREIGN KEY (Student) REFERENCES STUDENT(Email));
 
 CREATE TABLE APPOINTMENT
 (	IdAppointment		INT				NOT NULL	AUTO_INCREMENT,
-	Details				VARCHAR(2400)	NOT NULL,
+	Details				VARCHAR(320)	NOT NULL,
     RequestId			INT				NOT NULL,
     Tutor				VARCHAR(45)		NOT NULL,
 PRIMARY KEY (IdAppointment),
@@ -99,5 +94,5 @@ CREATE TABLE VALIDATES
 (	CommissionMember	VARCHAR(45)		NOT NULL,
 	ActivityId			INT				NOT NULL,
 PRIMARY KEY (CommissionMember, ActivityId),
-FOREIGN KEY (CommissionMember) REFERENCES TUTORING_COMMISSION_MEMBER(Email),
+FOREIGN KEY (CommissionMember) REFERENCES TS_USER(Email),
 FOREIGN KEY (ActivityId) REFERENCES ACTIVITY_TUTOR(IdActivity));

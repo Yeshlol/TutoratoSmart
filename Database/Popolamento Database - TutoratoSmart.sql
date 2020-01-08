@@ -18,12 +18,8 @@ INSERT INTO STUDENT(Email,AcademicYear) VALUES ('e.merola@studenti.unicampania.i
 INSERT INTO STUDENT(Email,AcademicYear) VALUES ('a.tommasino@studenti.unicampania.it','2018');
 
 
--- Commission Members:
-INSERT INTO TUTORING_COMMISSION_MEMBER (Email) VALUES ('d.molinaro@commissione.unicampania.it');
-
-
 -- Registers:
-INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (1, 'Approvato', 10, 10, 100);
+INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (1, 'Non approvato', 10, 10, 100);
 INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (2, 'Non approvato', 1, 10, 10);
 INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (3, 'Non approvato', 1, 10, 10);
 
@@ -49,7 +45,7 @@ INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Durat
 
 
 -- Appointment
-INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.Stava molto ucciso, aveva bisogno della 104.', '1', 'm.pisciotta@studenti.unicampania.it');
+INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Dettagli1', '1', 'm.pisciotta@studenti.unicampania.it');
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (2,'Dettagli2', '2', 'c.ferrari@studenti.unicampania.it');
 INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (3,'Dettagli3', '3', 'm.lombardo@studenti.unicampania.it');
 
