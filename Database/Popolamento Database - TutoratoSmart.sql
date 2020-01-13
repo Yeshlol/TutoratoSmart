@@ -19,9 +19,9 @@ INSERT INTO STUDENT(Email,AcademicYear) VALUES ('a.tommasino@studenti.unicampani
 
 
 -- Registers:
-INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (1, 'Non approvato', 10, 10, 100);
-INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (2, 'Non approvato', 1, 10, 10);
-INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (3, 'Non approvato', 1, 10, 10);
+INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (1, 'Approvato', 100, 100, 100);
+INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (2, 'Non approvato', 0, 10, 10);
+INSERT INTO REGISTER(IdRegister,State,ValidatedHours,TotalHours,PercentageComplete) VALUES (3, 'Non approvato', 0, 10, 10);
 
 
 -- Tutors:
@@ -31,9 +31,12 @@ INSERT INTO TUTOR(Email,StartDate,FinishDate,CommissionMember,RegisterId) VALUES
 
 
 -- Activity
-INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (1,'Sportello informativo', '2019-12-24', 600, 650, 0.83, 'In valutazione', 'Dettagli1', 'm.pisciotta@studenti.unicampania.it', 1);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (1,'Sportello Tutorato', '2019-12-24', 600, 650, 0.83, 'In valutazione', 'Dettagli1', 'm.pisciotta@studenti.unicampania.it', 1);
 INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (2,'Assistenza Esame', '2019-12-25', 720, 780, 1, 'Convalidata', 'Dettagli2', 'c.ferrari@studenti.unicampania.it', 2);
-INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (3, 'Organizzazione Seminario', '2019-12-26', 540, 780, 4, 'Convalidata', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (3, 'Organizzazione Seminario', '2019-12-26', 540, 780, 4, 'In valutazione', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (4, 'Organizzazione Seminario', '2019-12-26', 540, 780, 4, 'In valutazione', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (5, 'Organizzazione Seminario', '2019-12-26', 540, 780, 4, 'In valutazione', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
+INSERT INTO ACTIVITY_TUTOR(IdActivity,Category,ActivityDate,StartTime,FinishTime,Hours,State,Details,Tutor,RegisterId) VALUES (6, 'Organizzazione Seminario', '2019-12-26', 540, 780, 4, 'In valutazione', 'Dettagli3', 'm.lombardo@studenti.unicampania.it', 3);
 
 
 -- Request
@@ -43,26 +46,14 @@ INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Durat
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (4, 'In valutazione', 'Supporto prenotazione esame', '2020-01-08', 600, 20, 'e.merola@studenti.unicampania.it');
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (5, 'In valutazione', 'Preparazione prova scritta', '2020-01-08', 730, 15, 'g.luongo@studenti.unicampania.it');
 
-
 -- Appointment
-INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Dettagli1', '1', 'm.pisciotta@studenti.unicampania.it');
-INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (2,'Dettagli2', '2', 'c.ferrari@studenti.unicampania.it');
-INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (3,'Dettagli3', '3', 'm.lombardo@studenti.unicampania.it');
+INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (1, 'Dettagli appuntamento 1', '1', 'm.pisciotta@studenti.unicampania.it');
+INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (2,'Dettagli  appuntamento 2', '2', 'm.pisciotta@studenti.unicampania.it');
+INSERT INTO APPOINTMENT(IdAppointment,Details,RequestId,Tutor) VALUES (3,'Dettagli  appuntamento 3', '3', 'm.pisciotta@studenti.unicampania.it');
 
 
--- Contained_in
-INSERT INTO CONTAINED_IN(AppointmentId,ActivityId) VALUES (1, 1);
-INSERT INTO CONTAINED_IN(AppointmentId,ActivityId) VALUES (2, 2);
-INSERT INTO CONTAINED_IN(AppointmentId,ActivityId) VALUES (3, 3);
 
-
--- Manages
-INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.pisciotta@studenti.unicampania.it', 1);
-INSERT INTO MANAGES(Tutor,RequestId) VALUES ('c.ferrari@studenti.unicampania.it', 2);
-INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.lombardo@studenti.unicampania.it', 3);
 
 
 -- Validates
-INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 1);
 INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 2);
-INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 3);

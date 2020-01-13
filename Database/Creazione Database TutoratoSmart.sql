@@ -43,11 +43,11 @@ FOREIGN KEY (RegisterId) REFERENCES REGISTER(IdRegister));
 
 CREATE TABLE REQUEST
 (	IdRequest			INT				NOT NULL	AUTO_INCREMENT,
-	State				ENUM('In valutazione', 'Accettata')  NOT NULL	DEFAULT 'In valutazione',
+	State				ENUM('In valutazione', 'Accettata', 'Appuntamento effettuato', 'Studente assente')  NOT NULL	DEFAULT 'In valutazione',
 	StudentComment		VARCHAR(320)	NOT NULL,
     RequestDate			DATE			NOT NULL,
     RequestTime			INT				NOT NULL,
-    Duration			INT				NOT NULL	DEFAULT '30',
+    Duration			INT				NOT NULL	DEFAULT '15',
     Student				VARCHAR(45)		NOT NULL,
 PRIMARY KEY (IdRequest),
 FOREIGN KEY (Student) REFERENCES STUDENT(Email));
@@ -63,7 +63,7 @@ FOREIGN KEY (Tutor) REFERENCES TUTOR(Email));
 
 CREATE TABLE ACTIVITY_TUTOR
 (	IdActivity			INT				NOT NULL	AUTO_INCREMENT,
-	Category			ENUM('Sportello informativo', 'Assistenza Esame', 'Organizzazione Seminario', 'Seminario', 'Organizzazione Evento', 'Evento')	NOT NULL,
+	Category			ENUM('Sportello Tutorato', 'Assistenza Esame', 'Organizzazione Seminario', 'Seminario', 'Organizzazione Evento', 'Evento')	NOT NULL,
 	ActivityDate		DATE			NOT NULL,
     StartTime			INT				NOT NULL,
     FinishTime			INT				NOT NULL,
@@ -95,4 +95,4 @@ CREATE TABLE VALIDATES
 	ActivityId			INT				NOT NULL,
 PRIMARY KEY (CommissionMember, ActivityId),
 FOREIGN KEY (CommissionMember) REFERENCES TS_USER(Email),
-FOREIGN KEY (ActivityId) REFERENCES ACTIVITY_TUTOR(IdActivity));
+FOREIGN KEY (ActivityId) REFERENCES ACTIVITY_TUTOR(IdActivity) ON DELETE CASCADE);
