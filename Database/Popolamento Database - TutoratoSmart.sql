@@ -42,7 +42,9 @@ INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Durat
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (3, 'Appuntamento effettuato', 'Non riesco a prenotarmi per la prova intercorso', '2020-01-15', 900, 10, 'a.tommasino@studenti.unicampania.it');
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (4, 'Studente assente', 'Supporto iscrizione universita''', '2020-01-16', 600, 45, 'g.luongo@studenti.unicampania.it');
 INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (5, 'Accettata', 'Supporto prenotazione esame', '2020-01-22', 600, 20, 'e.merola@studenti.unicampania.it');
-INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (6, 'In valutazione', 'Problema studio', '2020-01-23', 780, 30, 'g.luongo@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (6, 'In valutazione', 'Problema studio', '2020-01-23', 900, 30, 'g.luongo@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (7, 'Accettata', 'Supporto prenotazione esame', '2020-02-05', 570, 40, 'e.merola@studenti.unicampania.it');
+INSERT INTO REQUEST(IdRequest,State,StudentComment,RequestDate,RequestTime,Duration,Student) VALUES (8, 'In valutazione', 'Problema studio', '2020-02-06', 960, 25, 'g.luongo@studenti.unicampania.it');
 
 
 -- Appointment
@@ -63,7 +65,7 @@ INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.pisciotta@studenti.unicampania.i
 INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.pisciotta@studenti.unicampania.it', 3);
 INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.lombardo@studenti.unicampania.it', 4);
 INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.lombardo@studenti.unicampania.it', 5);
-
+INSERT INTO MANAGES(Tutor,RequestId) VALUES ('m.lombardo@studenti.unicampania.it', 7);
 
 -- Validates
 INSERT INTO VALIDATES(CommissionMember,ActivityId) VALUES('d.molinaro@commissione.unicampania.it', 1);
