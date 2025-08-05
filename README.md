@@ -4,7 +4,7 @@ Questa repository contiene la documentazione tecnica completa del progetto **Tut
 
 ## 🧾 Contenuto della Documentazione
 
-RAD, SDD, ODD, Matrice di Tracciabilità, Test Plan, Test Case Specification, Test incident Report, Test Summary Report, Manuale D’Uso, Manuale Installazione.
+RAD, SDD, ODD, Matrice di Tracciabilità, Test Plan, Test Case Specification, Test Incident Report, Test Summary Report, Manuale d’uso, Manuale d'installazione.
 
 ### 📌 1. SOW – Statement of Work
 Definisce l'ambito del progetto, gli obiettivi di business, i vincoli, le risorse coinvolte, deliverables, criteri di accettazione e le tempistiche previste.
